@@ -115,7 +115,7 @@ with col2:
 st.markdown("---")
 
 # Load training data stats
-DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
+DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
 try:
     df = pd.read_csv(os.path.join(DATA_DIR, "company_ratios.csv"))
 
@@ -136,7 +136,7 @@ try:
         # Load model metrics if available
         try:
             import pickle
-            MODEL_DIR = os.path.join(os.path.dirname(__file__), "models")
+            MODEL_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "models")
             with open(os.path.join(MODEL_DIR, "metrics.pkl"), "rb") as f:
                 metrics = pickle.load(f)
             best_acc = max(m["accuracy"] for m in metrics.values())
